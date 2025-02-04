@@ -3,18 +3,18 @@ This C program is designed to validate a WAV file by checking its structure acco
 
 Key Features & How It Works
 
-    Reads and checks for key WAV format markers
-        "RIFF" header
-        "WAVE" format identifier
-        "fmt " subchunk
-        "data" subchunk
+-Reads and checks for key WAV format markers
+    "RIFF" header
+    "WAVE" format identifier
+    "fmt " subchunk
+    "data" subchunk
 
-    Validates file integrity by ensuring:
-        Proper chunk sizes
-        Correct WAV type format
-        Matching sample rate and byte alignment
-        Valid bits per sample values (8 or 16 bits)
-        Ensuring the total file size matches the expected size
+-Validates file integrity by ensuring:
+    Proper chunk sizes
+    Correct WAV type format
+    Matching sample rate and byte alignment
+    Valid bits per sample values (8 or 16 bits)
+    Ensuring the total file size matches the expected size
 
-    Reads & processes file in little-endian format
-        Since WAV files store multi-byte numbers in little-endian order, the program reconstructs these values accordingly.
+-Reads & processes file in little-endian format
+    Since WAV files store multi-byte numbers in little-endian order, the program reconstructs these values accordingly.
