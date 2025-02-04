@@ -1,20 +1,28 @@
 # wavproc
-This C program is designed to validate a WAV file by checking its structure according to the RIFF (Resource Interchange File Format) standard. It reads a WAV file from the standard input (stdin) and ensures that various fields follow the correct format.
+`wavproc` is a C program designed to **validate** WAV files by checking their structure according to the **RIFF (Resource Interchange File Format) standard**. It reads a WAV file from **standard input (stdin)** and ensures that various fields follow the correct format.
 
-Key Features & How It Works
+## How It Works
 
--Reads and checks for key WAV format markers
-    "RIFF" header
-    "WAVE" format identifier
-    "fmt " subchunk
-    "data" subchunk
+### ✅ Checks Key WAV Format Markers
+- `"RIFF"` header  
+- `"WAVE"` format identifier  
+- `"fmt "` subchunk  
+- `"data"` subchunk  
 
--Validates file integrity by ensuring:
-    Proper chunk sizes
-    Correct WAV type format
-    Matching sample rate and byte alignment
-    Valid bits per sample values (8 or 16 bits)
-    Ensuring the total file size matches the expected size
+### ✅ Validates File Integrity
+Ensures that the WAV file meets the following criteria:  
+- Correct **chunk sizes**  
+- Proper **WAV type format**  
+- **Matching sample rate** and **byte alignment**  
+- **Valid bits per sample** (must be **8** or **16**)  
+- **Total file size** matches expected value  
 
--Reads & processes file in little-endian format
-    Since WAV files store multi-byte numbers in little-endian order, the program reconstructs these values accordingly.
+### ✅ Processes WAV Data in Little-Endian Format
+Since WAV files store multi-byte numbers in **little-endian order**, the program correctly reconstructs these values when reading them.  
+
+## Usage
+To use `wavproc`, compile it using `gcc` and run it with a WAV file as input. For example:  
+
+```sh
+gcc wavproc.c -o wavproc
+./wavproc < bad_riff.wav
